@@ -1,0 +1,11 @@
+i{
+    color: red;
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+.rounded{
+    border-radius: 100%;
+}

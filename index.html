@@ -17,7 +17,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <title>Vue To Do List</title>
   </head>
@@ -28,25 +28,27 @@
           Mancano gli ingredienti inseriscili
         </li>
         <li
-          class="cursor"
+          class="cursor mt-1"
           :class="{'text-decoration-line-through': ingrediente.check}"
           v-for="(ingrediente, index) in tiramisu"
           :key="index"
         >
-          <span @click="ingrediente.check = !ingrediente.check"
-            >{{ingrediente.nomeIngrediente}}
+          <i :class="ingrediente.icon"></i>
+          <span  @click="ingrediente.check = !ingrediente.check"
+            >{{ingrediente.nomeIngrediente}} 
           </span>
-          <button>
-            <i @click="rimuovi(index)" class="fa-solid fa-xmark"></i>
+          <button class="rounded">
+            <i @click="rimuovi(index)" class="fa-solid fa-xmark "></i>
           </button>
         </li>
       </ul>
       <div class="input-group mb-3">
         <input
+          @keyup.enter="aggiungi"
           type="text"
           class="form-control"
           placeholder="Ingrediente"
-          aria-label="Ingredienti TiramisÃ¹"
+          aria-label="Ingredienti Tiramisù"
           v-model="nuovoIngrediente"
         />
         <button
